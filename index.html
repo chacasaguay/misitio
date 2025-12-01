@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Landing Page Moderna</title>
+  <title>Pachamama Ecuador - Trabajo de Clase</title>
 
   <style>
     /* ----- ESTILOS GENERALES ----- */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(120deg, #0f172a, #1e293b, #0f172a);
+      background: linear-gradient(120deg, #0c3b2e, #1a5e3a, #2d7d46);
       background-size: 300% 300%;
       animation: gradientMove 12s ease infinite;
       color: white;
@@ -30,6 +30,9 @@
       position: sticky;
       top: 0;
       backdrop-filter: blur(10px);
+      background: rgba(12, 59, 46, 0.95);
+      border-bottom: 2px solid #4CAF50;
+      z-index: 1000;
     }
 
     nav a {
@@ -41,101 +44,589 @@
     }
 
     nav a:hover {
-      color: #38bdf8;
+      color: #4CAF50;
+      transform: translateY(-2px);
     }
 
-    /* ----- HERO SECTION ----- */
+    /* ----- HERO SECTION CON VIDEO ALTERNATIVO ----- */
     .hero {
-      height: 85vh;
+      min-height: auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
+      padding: 60px 20px 40px;
+      position: relative;
+    }
+
+    .hero-video-contenedor {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto 40px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      background: #000;
+      position: relative;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-alternativo {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .video-alternativo h3 {
+      font-size: 2.5rem;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    }
+
+    .video-alternativo p {
+      font-size: 1.3rem;
+      color: #e8f5e9;
+      max-width: 700px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .video-boton {
+      background: #f44336;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: 0.3s;
+      border: 2px solid white;
+    }
+
+    .video-boton:hover {
+      background: white;
+      color: #f44336;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
+      font-size: 3.2rem;
+      margin-bottom: 20px;
       animation: fadeIn 1.2s ease forwards;
       opacity: 0;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      margin-top: 0;
     }
 
     .hero p {
       font-size: 1.3rem;
-      max-width: 600px;
+      max-width: 800px;
       animation: fadeIn 1.8s ease forwards;
       opacity: 0;
+      color: #e8f5e9;
+      line-height: 1.8;
+      margin-bottom: 30px;
     }
 
     @keyframes fadeIn {
       to { opacity: 1; }
     }
 
+    /* ----- CONTENEDOR BOTÓN + INFO CLASE ----- */
+    .boton-contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-top: 20px;
+      max-width: 900px;
+    }
+
     .btn {
-      margin-top: 30px;
-      padding: 12px 28px;
-      background: #38bdf8;
-      color: #0f172a;
-      border-radius: 25px;
-      font-size: 1.1rem;
+      padding: 14px 35px;
+      background: linear-gradient(to right, #4CAF50, #2E7D32);
+      color: white;
+      border-radius: 30px;
+      font-size: 1.2rem;
       border: none;
       cursor: pointer;
       transition: 0.3s;
       font-weight: bold;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      min-width: 200px;
     }
 
     .btn:hover {
-      background: #7dd3fc;
+      background: linear-gradient(to right, #66BB6A, #388E3C);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
     }
 
-    /* ----- SERVICIOS ----- */
-    .servicios {
+    /* ----- CUADRO DE TRABAJO DE CLASE ----- */
+    .info-clase {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      max-width: 300px;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .info-clase-contenido h4 {
+      color: #FF9800;
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-clase-contenido p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+      color: #e8f5e9;
+      line-height: 1.5;
+    }
+
+    .info-clase-contenido strong {
+      color: #4CAF50;
+    }
+
+    .enlace-app {
+      display: inline-block;
+      margin-top: 10px;
+      background: rgba(0, 122, 255, 0.2);
+      color: #007AFF;
+      padding: 8px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 1px solid #007AFF;
+      transition: 0.3s;
+      font-size: 0.9rem;
+      margin-right: 10px;
+      margin-bottom: 8px;
+    }
+
+    .enlace-app:hover {
+      background: #007AFF;
+      color: white;
+    }
+
+    .enlace-app.shiny {
+      background: rgba(66, 133, 244, 0.2);
+      color: #4285F4;
+      border-color: #4285F4;
+    }
+
+    .enlace-app.shiny:hover {
+      background: #4285F4;
+      color: white;
+    }
+
+    .enlace-app.pdf {
+      background: rgba(219, 68, 55, 0.2);
+      color: #DB4437;
+      border-color: #DB4437;
+    }
+
+    .enlace-app.pdf:hover {
+      background: #DB4437;
+      color: white;
+    }
+
+    /* ----- GALERÍA IMPACTANTE ----- */
+    .galeria-impacto {
       padding: 80px 40px;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .galeria-impacto h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 50px;
+      color: #FF9800;
+    }
+
+    .contenedor-imagenes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .imagen-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      height: 300px;
+    }
+
+    .imagen-item:hover {
+      transform: scale(1.03);
+    }
+
+    .imagen-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .imagen-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .imagen-texto {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 15px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .imagen-item:hover .imagen-texto {
+      transform: translateY(0);
+    }
+
+    .impacto-negativo {
+      border: 3px solid #f44336;
+    }
+
+    .impacto-positivo {
+      border: 3px solid #4CAF50;
+    }
+
+    /* ----- INTRO PACHAMAMA CON PDF ----- */
+    .intro-pachamama {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 900px;
+      border: 2px solid rgba(76, 175, 80, 0.3);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .intro-pachamama h2 {
+      color: #4CAF50;
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .intro-pachamama p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    /* ----- SECCIÓN PDF ----- */
+    .seccion-pdf {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 25px;
+      margin: 30px 0;
+      border-left: 5px solid #FF9800;
+    }
+
+    .seccion-pdf h3 {
+      color: #FF9800;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pdf-contenedor {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .pdf-info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .pdf-preview {
+      flex: 1;
+      min-width: 250px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 20px;
       text-align: center;
     }
 
-    .servicios h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
+    .pdf-icono {
+      font-size: 4rem;
+      color: #DB4437;
+      margin-bottom: 15px;
+    }
+
+    .pdf-acciones {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn-pdf {
+      background: #DB4437;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.3s;
+      border: 2px solid #DB4437;
+    }
+
+    .btn-pdf:hover {
+      background: transparent;
+      color: #DB4437;
+    }
+
+    .btn-pdf.ver {
+      background: #4285F4;
+      border-color: #4285F4;
+    }
+
+    .btn-pdf.ver:hover {
+      background: transparent;
+      color: #4285F4;
+    }
+
+    .btn-pdf.descargar {
+      background: #34A853;
+      border-color: #34A853;
+    }
+
+    .btn-pdf.descargar:hover {
+      background: transparent;
+      color: #34A853;
+    }
+
+    .sabiduria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .sabiduria-item {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 20px;
+      border-radius: 15px;
+      border-left: 5px solid #FF9800;
+    }
+
+    .sabiduria-item h4 {
+      color: #FF9800;
+      margin-top: 0;
+    }
+
+    /* ----- EXPERIENCIAS ----- */
+    .experiencias {
+      padding: 80px 40px;
+      text-align: center;
+      background: rgba(0,0,0,0.1);
+    }
+
+    .experiencias h2 {
+      font-size: 2.8rem;
+      margin-bottom: 50px;
+      color: #4CAF50;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .card {
-      background: rgba(255,255,255,0.06);
-      padding: 25px;
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
       border-radius: 20px;
       backdrop-filter: blur(8px);
-      transition: 0.3s;
+      transition: 0.4s;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
 
     .card:hover {
-      background: rgba(255,255,255,0.12);
-      transform: translateY(-5px);
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-10px);
+      border-color: #4CAF50;
+    }
+
+    .card h3 {
+      color: #4CAF50;
+      font-size: 1.6rem;
+      margin-bottom: 15px;
     }
 
     /* ----- CONTACTO ----- */
     .contacto {
       padding: 80px 40px;
       text-align: center;
+      background: linear-gradient(to bottom, rgba(12, 59, 46, 0.8), rgba(26, 94, 58, 0.9));
     }
 
     .contacto h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      color: #4CAF50;
     }
 
+    /* ----- FOOTER ----- */
     footer {
       text-align: center;
-      padding: 25px;
-      background: rgba(0,0,0,0.2);
-      margin-top: 40px;
+      padding: 30px;
+      background: rgba(0,0,0,0.3);
+      border-top: 2px solid #4CAF50;
+    }
+
+    footer p {
+      margin: 10px 0;
+      color: #c8e6c9;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 15px;
+        text-align: center;
+      }
+      
+      nav {
+        margin-top: 15px;
+      }
+      
+      nav a {
+        margin: 0 10px;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+      
+      .hero-video-contenedor {
+        margin-bottom: 30px;
+        min-height: 300px;
+      }
+      
+      .video-alternativo h3 {
+        font-size: 1.8rem;
+      }
+      
+      .video-alternativo p {
+        font-size: 1.1rem;
+      }
+      
+      .boton-contenedor {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .info-clase {
+        max-width: 100%;
+      }
+      
+      .pdf-contenedor {
+        flex-direction: column;
+      }
+      
+      .pdf-preview {
+        width: 100%;
+      }
+      
+      .pdf-acciones {
+        justify-content: center;
+      }
+      
+      .galeria-impacto, .experiencias, .contacto {
+        padding: 40px 20px;
+      }
+      
+      .contenedor-imagenes, .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .imagen-item {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-video-contenedor {
+        border-width: 3px;
+      }
+      
+      .btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+      }
+      
+      .enlace-app {
+        display: block;
+        margin-right: 0;
+        text-align: center;
+      }
+      
+      .btn-pdf {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -144,50 +635,266 @@
 
   <!-- NAV -->
   <header>
-    <h2 style="margin:0;">MiSitioWeb</h2>
+    <h2 style="margin:0; color: #4CAF50;">🌿 Defensa de la Pachamama</h2>
     <nav>
       <a href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#galeria">Realidad Impactante</a>
+      <a href="#pachamama">La Pachamama</a>
+      <a href="#experiencias">Acciones</a>
+      <a href="#contacto">Únete</a>
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO CON VIDEO ALTERNATIVO -->
   <section id="inicio" class="hero">
-    <h1>Bienvenido a Mi Landing Page Moderna</h1>
-    <p>Una página web elegante, responsiva y animada. Lista para usar como portafolio, negocio, curso o proyecto personal.</p>
-    <button class="btn">Comenzar</button>
+    <!-- CONTENEDOR DE VIDEO ALTERNATIVO -->
+    <div class="hero-video-contenedor">
+      <div class="video-alternativo">
+        <h3>🎬 Video Documental: Ecuador en Peligro</h3>
+        <p>Este video muestra la realidad ambiental de Ecuador.</p>
+        <a href="https://youtu.be/f68fxf0N2wk?si=THNLNqX0IK_Ly1C7" 
+           target="_blank" 
+           class="video-boton">
+          ▶️ Ver Video en YouTube
+        </a>
+      </div>
+    </div>
+    
+    <!-- TEXTO DEBAJO DEL VIDEO -->
+    <h1>La Realidad de Nuestra Tierra</h1>
+    <p>Ecuador, uno de los países más biodiversos del mundo, enfrenta una crisis silenciosa. Mientras celebramos su belleza, debemos confrontar la explotación que amenaza su existencia.</p>
+    
+    <!-- CONTENEDOR CON BOTÓN Y INFO CLASE -->
+    <div class="boton-contenedor">
+      <button class="btn" onclick="document.getElementById('galeria').scrollIntoView()">
+        Ver la Realidad Completa
+      </button>
+      
+      <!-- CUADRO DE TRABAJO DE CLASE -->
+      <div class="info-clase">
+        <div class="info-clase-contenido">
+          <h4>📚 Trabajo de Clase</h4>
+          <p><strong>Asignatura:</strong> Desarrollo Web</p>
+          <p><strong>Estudiante:</strong> [Tu Nombre]</p>
+          <p><strong>Curso:</strong> Programación Web I</p>
+          <p><strong>Año:</strong> 2025</p>
+          
+          <!-- ENLACES A APPS Y DATOS -->
+          <a href="https://paol.shinyapps.io/pao_app/" 
+             target="_blank" 
+             class="enlace-app shiny">
+            📊 App Shiny (Análisis de Datos)
+          </a>
+          
+          <a href="#pachamama" class="enlace-app pdf">
+            📄 Información en PDF
+          </a>
+          
+          <a href="#datos-proyecto" 
+             onclick="mostrarDatosProyecto()" 
+             class="enlace-app">
+            🔍 Ver Datos del Proyecto
+          </a>
+          
+          <p style="margin-top: 15px; font-size: 0.85rem; color: #ccc;">
+            <em>Material educativo completo disponible</em>
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- SERVICIOS -->
-  <section id="servicios" class="servicios">
-    <h2>Servicios</h2>
+  <!-- GALERÍA IMPACTANTE -->
+  <section id="galeria" class="galeria-impacto">
+    <h2>⚠️ Realidad Impactante: Explotación vs Conservación</h2>
+    
+    <div class="contenedor-imagenes">
+      <!-- IMAGEN 1: Deforestación -->
+      <div class="imagen-item impacto-negativo">
+        <img src="1-deforestacion.jpg" alt="Deforestación en Ecuador">
+        <div class="imagen-texto">
+          <h3>Deforestación Amazónica</h3>
+          <p>Miles de hectáreas de bosque primario desaparecen cada año</p>
+        </div>
+      </div>
+
+      <!-- IMAGEN 2: Minería -->
+      <div class="imagen-item impacto-negativo">
+        <img src="2-mineria.jpg" alt="Minería ilegal en Ecuador">
+        <div class="imagen-texto">
+          <h3>Minería Ilegal</h3>
+          <p>Explotación sin control que contamina ríos y suelos</p>
+        </div>
+      </div>
+
+      <!-- IMAGEN 3: Río contaminado -->
+      <div class="imagen-item impacto-negativo">
+        <img src="3-rio-contaminado.jpg" alt="Ríos contaminados en Ecuador">
+        <div class="imagen-texto">
+          <h3>Contaminación Fluvial</h3>
+          <p>Vertidos tóxicos en los ríos, afectando comunidades y ecosistemas</p>
+        </div>
+      </div>
+
+      <!-- IMAGEN 4: Reserva protegida -->
+      <div class="imagen-item impacto-positivo">
+        <img src="4-reserva-bosque.jpg" alt="Reservas naturales de Ecuador">
+        <div class="imagen-texto">
+          <h3>Reservas Protegidas</h3>
+          <p>Áreas conservadas que mantienen la biodiversidad única</p>
+        </div>
+      </div>
+
+      <!-- IMAGEN 5: Animales -->
+      <div class="imagen-item impacto-positivo">
+        <img src="5-animales.jpg" alt="Fauna de Ecuador protegida">
+        <div class="imagen-texto">
+          <h3>Fauna en Peligro</h3>
+          <p>Especies endémicas que dependen de nuestra protección</p>
+        </div>
+      </div>
+
+      <!-- IMAGEN 6: Mensaje final -->
+      <div class="imagen-item impacto-positivo">
+        <img src="https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Esperanza y acción">
+        <div class="imagen-texto">
+          <h3>Esperanza Activa</h3>
+          <p>Cada acción cuenta en la defensa de nuestro planeta</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO PACHAMAMA CON PDF -->
+  <section id="pachamama" class="intro-pachamama">
+    <h2>🌎 La Pachamama nos Llama</h2>
+    <p>La Madre Tierra nos da vida, sustento y belleza. En Ecuador, hogar de innumerables especies y culturas ancestrales, el llamado de la Pachamama es urgente. La explotación petrolera, minera y agroindustrial avanza sobre territorios sagrados, desplazando comunidades y destruyendo ecosistemas irreemplazables.</p>
+    
+    <p><strong>Defender la Pachamama no es una opción, es una obligación moral.</strong> Cada árbol talado, cada río contaminado, cada especie extinguida es una herida que no podemos ignorar.</p>
+    
+    <!-- SECCIÓN DEL PDF -->
+    <div class="seccion-pdf">
+      <h3>📚 Información Complementaria en PDF</h3>
+      <p>Descarga o visualiza nuestro documento educativo con información detallada sobre la defensa ambiental en Ecuador:</p>
+      
+      <div class="pdf-contenedor">
+        <div class="pdf-info">
+          <h4>Contenido del Documento:</h4>
+          <ul style="color: #e8f5e9; line-height: 1.8;">
+            <li>✅ Datos estadísticos actualizados 2025</li>
+            <li>✅ Análisis de impacto ambiental</li>
+            <li>✅ Casos de estudio en Ecuador</li>
+            <li>✅ Guía de acciones concretas</li>
+            <li>✅ Recursos educativos adicionales</li>
+          </ul>
+          
+          <div class="pdf-acciones">
+            <!-- ENLACE PARA VER PDF -->
+            <a href="https://drive.google.com/file/d/1abc123def456ghi789jkl/preview" 
+               target="_blank"
+               class="btn-pdf ver">
+               👁️ Ver PDF Online
+            </a>
+            
+            <!-- ENLACE PARA DESCARGAR PDF -->
+            <a href="informacion-pachamama.pdf" 
+               download="Informacion-Pachamama-Ecuador.pdf"
+               class="btn-pdf descargar">
+               ⬇️ Descargar PDF
+            </a>
+          </div>
+        </div>
+        
+        <div class="pdf-preview">
+          <div class="pdf-icono">📄</div>
+          <h4>Información Pachamama.pdf</h4>
+          <p style="color: #ccc; font-size: 0.9rem;">
+            <strong>Tamaño:</strong> 2.4 MB<br>
+            <strong>Páginas:</strong> 12<br>
+            <strong>Actualizado:</strong> Diciembre 2025
+          </p>
+          <p style="margin-top: 15px; font-size: 0.9rem;">
+            Documento educativo para uso académico
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sabiduria">
+      <div class="sabiduria-item">
+        <h4>⚠️ Amenazas Inmediatas</h4>
+        <p>• Expansión de frontera agrícola<br>• Minería a cielo abierto<br>• Tráfico de especies<br>• Contaminación industrial</p>
+      </div>
+      <div class="sabiduria-item">
+        <h4>🛡️ Nuestra Responsabilidad</h4>
+        <p>• Consumo responsable<br>• Denuncia ambiental<br>• Apoyo a comunidades<br>• Educación ecológica</p>
+      </div>
+      <div class="sabiduria-item">
+        <h4>💚 Esperanza Activa</h4>
+        <p>• Reservas comunitarias<br>• Turismo sostenible<br>• Reforestación nativa<br>• Tecnologías limpias</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIAS / ACCIONES -->
+  <section id="experiencias" class="experiencias">
+    <h2>✊ Tú Puedes Hacer la Diferencia</h2>
 
     <div class="cards">
       <div class="card">
-        <h3>Diseño Web</h3>
-        <p>Sitios modernos, rápidos y elegantes.</p>
+        <h3>📢 Concientiza</h3>
+        <p>Comparte información, habla con tu familia, organiza charlas en tu comunidad sobre la importancia de proteger nuestros recursos.</p>
       </div>
       <div class="card">
-        <h3>Dashboards</h3>
-        <p>Visualizaciones con R Shiny, Python o Power BI.</p>
+        <h3>🌱 Consume Consciente</h3>
+        <p>Elige productos locales, reduce plásticos, apoya negocios sostenibles y agricultura responsable.</p>
       </div>
       <div class="card">
-        <h3>Automatización</h3>
-        <p>Scripts inteligentes para mejorar procesos.</p>
+        <h3>📝 Exige y Denuncia</h3>
+        <p>Utiliza canales legales para denunciar delitos ambientales. La defensa legal es una herramienta poderosa.</p>
       </div>
     </div>
   </section>
 
   <!-- CONTACTO -->
   <section id="contacto" class="contacto">
-    <h2>Contacto</h2>
-    <p>Escríbeme a: <strong>tucorreo@example.com</strong></p>
+    <h2>Únete a la Defensa de la Pachamama</h2>
+    <p>Tu voz y tus acciones importan. Juntos podemos cambiar la realidad.</p>
+    <p><strong>Contacto para voluntariado:</strong> defensapachamama@ecuador.org</p>
+    <button class="btn">Quiero Ser Parte del Cambio</button>
   </section>
 
   <footer>
-    © 2025 - Mi Landing Page Moderna
+    <p>© 2025 - Defensa de la Pachamama Ecuador</p>
+    <p><strong>Trabajo de Clase - Desarrollo Web</strong> | Estudiante: [Tu Nombre]</p>
+    <p>Recursos: <a href="#pachamama" style="color: #4CAF50;">📄 PDF Informativo</a> | 
+       <a href="https://paol.shinyapps.io/pao_app/" target="_blank" style="color: #4CAF50;">📊 App Shiny</a></p>
+    <p>"No heredamos la tierra de nuestros antepasados, la tomamos prestada de nuestros hijos" - Proverbio indígena</p>
   </footer>
+
+  <script>
+    function mostrarDatosProyecto() {
+      alert("📋 Datos del Proyecto:\n\n" +
+            "• Tema: Defensa de la Pachamama\n" +
+            "• Tecnologías: HTML5, CSS3, JavaScript\n" +
+            "• App Complementaria: R Shiny\n" +
+            "• Recursos: PDF educativo\n" +
+            "• Hosting: GitHub Pages\n" +
+            "• Fecha: 2025\n" +
+            "• Objetivo: Concientización ambiental");
+    }
+    
+    // Si el PDF no existe, mostrar mensaje
+    document.addEventListener('DOMContentLoaded', function() {
+      const pdfLinks = document.querySelectorAll('a[href$=".pdf"]');
+      pdfLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Verificar si el PDF existe (esto es una simulación)
+          console.log("Intento de acceder al PDF:", this.href);
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
